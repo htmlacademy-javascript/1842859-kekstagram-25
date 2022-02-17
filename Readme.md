@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Ирина Ситникова](https://up.htmlacademy.ru/javascript/25/user/1842859).
-* Наставник: [Семён Якушев] (https://htmlacademy.ru/profile/id1118791).
+* Наставник: [Семён Якушев](https://htmlacademy.ru/profile/id1118791).
 
 ---
 
