@@ -54,3 +54,5 @@ const createDescription = (count) => {
 };
 
 createDescription(SIMILAR_PHOTOS_COUNT);
+
+export {createDescription};
