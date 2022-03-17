@@ -23,5 +23,7 @@ function getMaxLength(checkedString, maxStringLength) {
 }
 getMaxLength('строка', 140);
 
+const isEscapeKey = (evt) =>
+  evt.key === 'Escape';
 
-export {getRandomIntInclusive, getRandomArrayElement};
+export {getRandomIntInclusive, getRandomArrayElement, isEscapeKey};
