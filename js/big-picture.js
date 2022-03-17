@@ -7,19 +7,19 @@ const body = document.querySelector('body');
 const commentsList = bigPicture.querySelector('.social__comments');
 const commentTemplate = commentsList.querySelector('li');
 
-const onBigPictureEscKeydown = function (evt) {
+const onBigPictureEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
     hideBigPicture();
   }
 };
 
-const hideBigPicture = () => {
+function hideBigPicture () {
   bigPicture.classList.add('hidden');
   body.classList.remove('modal-open');
 
   document.removeEventListener('keydown', onBigPictureEscKeydown);
-};
+}
 
 const showBigPicture = ({url, description, comments, likes}) => {
   socialCommentCount.classList.add('hidden');
@@ -27,7 +27,6 @@ const showBigPicture = ({url, description, comments, likes}) => {
 
   bigPicture.querySelector('.big-picture__img img').src = url;
   bigPicture.querySelector('.social__caption').line = description;
-  bigPicture.querySelector('.social__comments').textContent = comments;
   bigPicture.querySelector('.likes-count').textContent = likes;
 
   bigPicture.classList.remove('hidden');
