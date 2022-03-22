@@ -116,20 +116,13 @@
 
                 <!-- Добавление хэш-тегов и комментария к изображению -->
                 <fieldset class="img-upload__text text">
-                  <label class="text__hashtags-label">
+                  <div class="text__hashtags-label">
                     <input type="text" class="text__hashtags" name="hashtags" placeholder="#ХэшТег">
-                  </label>
-                  <textarea class="text__description" name="description" maxlength="140" placeholder="Ваш комментарий..."></textarea>
+                  </div>
+                  <div class="text__hashtags-label">
+                    <textarea class="text__description" name="description" maxlength="140" placeholder="Ваш комментарий..."></textarea>
+                  </div>
                 </fieldset>
-
-                <!--minlength="2" maxlength="20"
-                    maxlength="140"
-
-                    data-pristine-minlength-message="Хеш-тег не может состоять только из одной решётки"
-                    data-pristine-maxlength-message="Максимальная длина одного хэш-тега 20 символов, включая решётку"
-
-                    data-pristine-maxlength-message="Длина комментария не может составлять больше 140 символов"
-                  -->
 
                 <!-- Кнопка для отправки данных на сервер -->
                 <button type="submit" class="img-upload__submit" id="upload-submit">Опубликовать</button>

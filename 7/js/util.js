@@ -27,4 +27,4 @@ getMaxLength('строка', 140);
 const isEscapeKey = (evt) =>
   evt.key === 'Escape';
 
-export {getRandomIntInclusive, getRandomArrayElement, isEscapeKey, getMaxLength};
+export {getRandomIntInclusive, getRandomArrayElement, isEscapeKey};
