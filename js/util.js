@@ -21,6 +21,7 @@ function getMaxLength(checkedString, maxStringLength) {
   }
   return false;
 }
+
 getMaxLength('строка', 140);
 
 const isEscapeKey = (evt) =>

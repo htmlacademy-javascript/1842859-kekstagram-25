@@ -47,4 +47,4 @@ const showBigPicture = ({url, description, comments, likes}) => {
   });
 };
 
-export {showBigPicture};
+export {showBigPicture, body};

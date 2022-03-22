@@ -1403,3 +1403,10 @@ main {
 .hidden {
   display: none;
 }
+
+.img-upload__error-text {
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 700;
+  color: #e90000;
+}
