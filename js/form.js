@@ -13,7 +13,8 @@ function showUploadFile () {
   document.addEventListener('keydown', onImgUploadOverlayEscKeydown);
 }
 
-formUploadFile.addEventListener('change', showUploadFile);
+//formUploadFile.addEventListener('change', showUploadFile);
+showUploadFile();
 
 function onImgUploadOverlayEscKeydown (evt) {
   if (isEscapeKey(evt)) {
