@@ -5,6 +5,7 @@ import {textHashtags, textDescription} from './form-valid.js';
 const formUploadFile = document.querySelector('#upload-file');
 const formEditorImg = document.querySelector('.img-upload__overlay');
 const buttonImgUploadCancel = document.querySelector('.img-upload__cancel');
+const textHashtagsLabel = document.querySelector('.text__hashtags-label');
 
 function showUploadFile () {
   formEditorImg.classList.remove('hidden');
@@ -27,6 +28,7 @@ function cancelButtonUpload () {
   formEditorImg.classList.add('hidden');
   body.classList.remove('modal-open');
   formUploadFile.value = '';
+  textHashtagsLabel.value = '';
 
   document.removeEventListener('keydown', onImgUploadOverlayEscKeydown);
 }
@@ -39,3 +41,5 @@ textHashtags.addEventListener('keydown', (evt) => {
 textDescription.addEventListener('keydown', (evt) => {
   evt.stopPropagation();
 });
+
+export {showUploadFile, cancelButtonUpload};

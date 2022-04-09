@@ -6,4 +6,5 @@ import './form.js';
 import './form-valid.js';
 import './image-scale.js';
 import './slider.js';
+import './data-server.js';
 

@@ -1,7 +1,12 @@
+import {showAlert} from './util.js';
+import {cancelButtonUpload} from './form.js';
+import {sendData} from './data-server.js';
+
 const formUploadImg = document.querySelector('.img-upload__form');
 const textHashtags = document.querySelector('.text__hashtags');
 const textDescription = document.querySelector('.text__description');
 const re = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
+const imgUploadSubmit = document.querySelector('.img-upload__submit');
 
 const pristine = new Pristine(formUploadImg, {
   classTo: 'text__hashtags-label',
@@ -54,10 +59,39 @@ const validUniqueHashtags = () => {
 };
 pristine.addValidator(textHashtags, validUniqueHashtags, 'содержит одинаковые хэш-теги');
 
+const blockimgUploadSubmit = () => {
+  imgUploadSubmit.disabled = true;
+  imgUploadSubmit.textContent = 'Публикую...';
+};
 
-formUploadImg.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-  pristine.validate();
-});
+const unblockimgUploadSubmit = () => {
+  imgUploadSubmit.disabled = false;
+  imgUploadSubmit.textContent = 'Опубликовать';
+};
 
-export {textHashtags, textDescription};
+const setUserFormSubmit = (onSuccess) => {
+  formUploadImg.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+    //pristine.validate();
+
+    const isValid = pristine.validate();
+    if (isValid) {
+      blockimgUploadSubmit();
+      sendData(
+        () => {
+          onSuccess();
+          unblockimgUploadSubmit();
+        },
+        () => {
+          showAlert('Не удалось отправить форму. Попробуйте ещё раз');
+          unblockimgUploadSubmit();
+        },
+        new FormData(evt.target),
+      );
+    }
+  });
+};
+
+setUserFormSubmit(cancelButtonUpload);
+
+export {textHashtags, textDescription, setUserFormSubmit};
