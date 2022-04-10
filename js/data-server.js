@@ -1,16 +1,20 @@
 import {randomUserImages} from './picture.js';
+import {showAlert} from './util.js';
 
 //получение данных с сервера
 
-fetch('https://25.javascript.pages.academy/kekstagram/data')
-  .then((response) => response.json())
-  .then((photos) => {
-    randomUserImages(photos);
-  });
+const getData = () => {
+  fetch('https://25.javascript.pages.academy/kekstagram/data')
+    .then((response) => response.json())
+    .then((photos) => {
+      randomUserImages(photos);
+    })
+    .catch(() => {showAlert('Что-то пошло не так');});
+};
 
 const sendData = (onSuccess, onFail, body) => {
   fetch(
-    'https://25.javascript.pages.academy/kekstagram',
+    'https://25.javascript.pages.academ/kekstagram',
     {
       method: 'POST',
       body,
@@ -20,14 +24,14 @@ const sendData = (onSuccess, onFail, body) => {
       if (response.ok) {
         onSuccess();
       } else {
-        onFail('Не удалось отправить форму. Попробуйте ещё раз');
+        onFail();
       }
     })
     .catch(() => {
-      onFail('Не удалось отправить форму. Попробуйте ещё раз');
+      onFail();
     });
 };
 
-export {sendData};
+export {sendData, getData};
 
 

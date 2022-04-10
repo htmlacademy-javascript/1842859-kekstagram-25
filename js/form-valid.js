@@ -1,6 +1,6 @@
-import {showAlert} from './util.js';
 import {cancelButtonUpload} from './form.js';
 import {sendData} from './data-server.js';
+import {onErrorLoad, onSuccessLoad} from './modal-message.js';
 
 const formUploadImg = document.querySelector('.img-upload__form');
 const textHashtags = document.querySelector('.text__hashtags');
@@ -81,9 +81,12 @@ const setUserFormSubmit = (onSuccess) => {
         () => {
           onSuccess();
           unblockimgUploadSubmit();
+          cancelButtonUpload();
+          onSuccessLoad();
         },
         () => {
-          showAlert('Не удалось отправить форму. Попробуйте ещё раз');
+          onErrorLoad();
+          cancelButtonUpload();
           unblockimgUploadSubmit();
         },
         new FormData(evt.target),
