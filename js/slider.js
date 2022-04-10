@@ -109,3 +109,5 @@ document.querySelector('.img-upload__effects').addEventListener('change', (evt) 
   }
 });
 
+export {effectLevelSlider};
+
