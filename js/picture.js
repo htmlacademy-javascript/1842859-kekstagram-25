@@ -24,4 +24,3 @@ const randomUserImages = (UserImages) => {
 };
 
 export {randomUserImages};
-

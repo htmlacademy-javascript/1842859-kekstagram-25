@@ -12,9 +12,11 @@ const getData = () => {
     .catch(() => {showAlert('Что-то пошло не так');});
 };
 
+// отправка данных на сервер
+
 const sendData = (onSuccess, onFail, body) => {
   fetch(
-    'https://25.javascript.pages.academ/kekstagram',
+    'https://25.javascript.pages.academy/kekstagram',
     {
       method: 'POST',
       body,
@@ -33,5 +35,3 @@ const sendData = (onSuccess, onFail, body) => {
 };
 
 export {sendData, getData};
-
-
