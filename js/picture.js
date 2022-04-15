@@ -5,10 +5,10 @@ const patternPicture = document.querySelector('#picture')
   .content
   .querySelector('.picture');
 
-const randomUserImages = (UserImages) => {
+const randomUserImages = (userImages) => {
   const picturesListFragment = document.createDocumentFragment();
 
-  UserImages.forEach(({url, description, comments, likes}) => {
+  userImages.forEach(({url, description, comments, likes}) => {
     const pictureElement = patternPicture.cloneNode(true);
     pictureElement.querySelector('.picture__img').src = url;
     pictureElement.querySelector('.picture__comments').textContent = comments.length;
@@ -23,4 +23,8 @@ const randomUserImages = (UserImages) => {
   picturesListElement.appendChild(picturesListFragment);
 };
 
-export {randomUserImages};
+const clearPhotosList = () => {
+  document.querySelectorAll('.picture').forEach((photo) => {photo.remove();});
+};
+
+export {randomUserImages, clearPhotosList};

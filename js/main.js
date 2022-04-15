@@ -1,14 +1,16 @@
-// import './data.js';
-// import './util.js';
-// import './picture.js';
-// import './big-picture.js';
-// import './form-valid.js';
-// import './slider.js';
-// import './modal-message.js';
+import {randomUserImages} from './picture.js';
 import './image-scale.js';
 import {uploadFile} from './form.js';
 import {getData} from './data-server.js';
+import {setFilterFormClikHandler, hideFilter, showFilter} from './sorting-photos.js';
 
-getData();
+hideFilter();
+const cb = (userImages) => {
+  setFilterFormClikHandler(userImages);
+  randomUserImages(userImages);
+  showFilter();
+};
+
+getData(cb);
 uploadFile();
 
