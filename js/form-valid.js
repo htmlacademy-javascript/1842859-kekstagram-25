@@ -72,7 +72,6 @@ const unblockimgUploadSubmit = () => {
 const setUserFormSubmit = (onSuccess) => {
   formUploadImg.addEventListener('submit', (evt) => {
     evt.preventDefault();
-    //pristine.validate();
 
     const isValid = pristine.validate();
     if (isValid) {

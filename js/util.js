@@ -14,6 +14,17 @@ getRandomIntInclusive(1, 10);
 const getRandomArrayElement = (elements) =>
   elements[getRandomIntInclusive(0, elements.length - 1)];
 
+// функция которая перемешивает элементы массива
+
+const shuffleArray = (array) => {
+  const newArray = array.slice();
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
+
 
 // Функция для проверки максимальной длины строки
 
@@ -52,4 +63,12 @@ const showAlert = (message) => {
   }, ALERT_SHOW_TIME);
 };
 
-export {getRandomIntInclusive, getRandomArrayElement, isEscapeKey, showAlert};
+const debounce = (callback, timeoutDelay) => {
+  let timeoutId;
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+};
+
+export {getRandomIntInclusive, getRandomArrayElement, isEscapeKey, showAlert, debounce, shuffleArray};

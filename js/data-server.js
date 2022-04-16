@@ -1,13 +1,12 @@
-import {randomUserImages} from './picture.js';
 import {showAlert} from './util.js';
 
 //получение данных с сервера
 
-const getData = () => {
+const getData = (onSuccess) => {
   fetch('https://25.javascript.pages.academy/kekstagram/data')
     .then((response) => response.json())
     .then((photos) => {
-      randomUserImages(photos);
+      onSuccess(photos);
     })
     .catch(() => {showAlert('Что-то пошло не так');});
 };

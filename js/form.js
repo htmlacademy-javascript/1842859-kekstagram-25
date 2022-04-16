@@ -29,7 +29,6 @@ function showUploadFile () {
 
 const uploadFile = () => {
   formUploadFile.addEventListener('change', showUploadFile);
-  //showUploadFile();
 };
 
 function onImgUploadOverlayEscKeydown (evt) {
