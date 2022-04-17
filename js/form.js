@@ -9,6 +9,7 @@ const buttonImgUploadCancel = document.querySelector('.img-upload__cancel');
 const textHashtagsLabel = document.querySelector('.text__hashtags-label');
 const imgUploadPreview = document.querySelector('.img-upload__preview img');
 const effectLevel = document.querySelector('.img-upload__effect-level');
+const FILE_TYPES = ['jpg', 'jpeg', 'png'];
 
 const resetForm = () => {
   formUploadFile.value = '';
@@ -23,6 +24,15 @@ const resetForm = () => {
 function showUploadFile () {
   formEditorImg.classList.remove('hidden');
   body.classList.add('modal-open');
+
+  const file = formUploadFile.files[0];
+  const fileName = file.name.toLowerCase();
+
+  const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
+
+  if (matches) {
+    imgUploadPreview.src = URL.createObjectURL(file);
+  }
 
   document.addEventListener('keydown', onImgUploadOverlayEscKeydown);
 }
