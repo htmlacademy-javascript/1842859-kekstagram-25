@@ -37,9 +37,9 @@ const showBigPicture = ({url, description, comments, likes}) => {
     commentsLoader.classList.add('hidden');
   }
 
-  drawsСomments(comments.slice(0, limitComments));
+  drawsComments(comments.slice(0, limitComments));
 
-  function drawsСomments (arrayComments) {
+  function drawsComments (arrayComments) {
     arrayComments.forEach((element) => {
       const commentElement = commentTemplate.cloneNode(true);
       commentElement.querySelector('.social__picture').src = element.avatar;
@@ -50,8 +50,8 @@ const showBigPicture = ({url, description, comments, likes}) => {
     });
   }
 
-  const uploadsСomments = () => {
-    drawsСomments(comments.slice(limitComments, limitComments + 5));
+  const uploadsComments = () => {
+    drawsComments(comments.slice(limitComments, limitComments + 5));
     limitComments = limitComments + 5;
     if (limitComments >= comments.length) {
       limitComments = comments.length;
@@ -68,10 +68,10 @@ const showBigPicture = ({url, description, comments, likes}) => {
 
 
     document.removeEventListener('keydown', onBigPictureEscKeydown);
-    commentsLoader.removeEventListener('click', uploadsСomments);
+    commentsLoader.removeEventListener('click', uploadsComments);
   }
 
-  commentsLoader.addEventListener('click', uploadsСomments);
+  commentsLoader.addEventListener('click', uploadsComments);
 
 };
 

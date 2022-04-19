@@ -2,6 +2,9 @@ import {cancelButtonUpload} from './form.js';
 import {sendData} from './data-server.js';
 import {onErrorLoad, onSuccessLoad} from './modal-message.js';
 
+const COMMENT_LENGTH = 140;
+const QUANTITY_HASHTAGS = 5;
+
 const formUploadImg = document.querySelector('.img-upload__form');
 const textHashtags = document.querySelector('.text__hashtags');
 const textDescription = document.querySelector('.text__description');
@@ -17,7 +20,7 @@ const pristine = new Pristine(formUploadImg, {
 //вылидация поля для комментариев
 
 function validateComments (value) {
-  return value.length <= 140;
+  return value.length <= COMMENT_LENGTH;
 }
 pristine.addValidator(textDescription, validateComments, 'Длина не может быть больше 140 символов');
 
@@ -26,10 +29,7 @@ pristine.addValidator(textDescription, validateComments, 'Длина не мож
 
 const getMaxLengthArray = () => {
   const MaxLengthArray = textHashtags.value.split(' ').length;
-  if (MaxLengthArray <= 5) {
-    return true;
-  }
-  return false;
+  return MaxLengthArray <= QUANTITY_HASHTAGS;
 };
 pristine.addValidator(textHashtags, getMaxLengthArray, 'не больше 5 хэш-тегов');
 
