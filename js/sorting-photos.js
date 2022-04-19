@@ -1,11 +1,12 @@
 import {shuffleArray, debounce} from './util.js';
 import {randomUserImages, clearPhotosList} from './picture.js';
 
+const QUANTITY_RANDOM_PHOTOS = 10;
+const RERENDER_DELAY = 500;
+
 const imgFiltersButtons = document.querySelectorAll('.img-filters__button');
 const imgFiltersForm = document.querySelector('.img-filters__form');
 const imgFilters = document.querySelector('.img-filters');
-const QUANTITY_RANDOM_PHOTOS = 10;
-const RERENDER_DELAY = 500;
 
 const sortingPhotos = (photoA, photoB) => {
   const rankA = photoA.comments.length;

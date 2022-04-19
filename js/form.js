@@ -3,13 +3,14 @@ import {isEscapeKey} from './util.js';
 import {textHashtags, textDescription} from './form-valid.js';
 import {effectLevelSlider} from './slider.js';
 
+const FILE_TYPES = ['jpg', 'jpeg', 'png'];
+
 const formUploadFile = document.querySelector('#upload-file');
 const formEditorImg = document.querySelector('.img-upload__overlay');
 const buttonImgUploadCancel = document.querySelector('.img-upload__cancel');
 const textHashtagsLabel = document.querySelector('.text__hashtags-label');
 const imgUploadPreview = document.querySelector('.img-upload__preview img');
 const effectLevel = document.querySelector('.img-upload__effect-level');
-const FILE_TYPES = ['jpg', 'jpeg', 'png'];
 
 const resetForm = () => {
   formUploadFile.value = '';
