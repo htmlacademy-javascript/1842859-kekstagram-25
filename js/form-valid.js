@@ -19,9 +19,7 @@ const pristine = new Pristine(formUploadImg, {
 
 //вылидация поля для комментариев
 
-function validateComments (value) {
-  return value.length <= COMMENT_LENGTH;
-}
+const validateComments = (value) => value.length <= COMMENT_LENGTH;
 pristine.addValidator(textDescription, validateComments, 'Длина не может быть больше 140 символов');
 
 

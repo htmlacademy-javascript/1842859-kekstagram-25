@@ -11,18 +11,6 @@ const shuffleArray = (array) => {
   return newArray;
 };
 
-
-// Функция для проверки максимальной длины строки
-
-const getMaxLength = (checkedString, maxStringLength) => {
-  if (checkedString.length < maxStringLength) {
-    return true;
-  }
-  return false;
-};
-
-getMaxLength('строка', 140);
-
 const isEscapeKey = (evt) =>
   evt.key === 'Escape';
 
