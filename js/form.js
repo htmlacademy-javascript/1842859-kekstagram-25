@@ -22,7 +22,7 @@ const resetForm = () => {
   effectLevel.classList.add('hidden');
 };
 
-function showUploadFile () {
+const showUploadFile = () => {
   formEditorImg.classList.remove('hidden');
   body.classList.add('modal-open');
 
@@ -36,7 +36,7 @@ function showUploadFile () {
   }
 
   document.addEventListener('keydown', onImgUploadOverlayEscKeydown);
-}
+};
 
 const uploadFile = () => {
   formUploadFile.addEventListener('change', showUploadFile);
